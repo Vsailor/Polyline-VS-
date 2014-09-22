@@ -99,10 +99,8 @@ void inputPolyline(Stack &s) {
 
 void showPolyline(Stack s) {
 	int i;
-	printf("%d", s.n);
-	for (i=0; i<s.n; i++) {
-		printf("%d", s.stack[i].x);
-
+	for (i=s.n-1; i>=0; i--) {
+		printf("x = %d, y = %d\n", s.stack[i].x, s.stack[i].y);
 	}
 
 }

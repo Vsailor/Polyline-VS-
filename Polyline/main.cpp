@@ -10,12 +10,12 @@ int main(void)
 
    // Problem is here! printf("%d", stack.n);
     inputPolyline(stack);
-   // showPolyline(stack);
+    showPolyline(stack);
+	/*pop(stack);
 	pop(stack);
 	pop(stack);
 	pop(stack);
-	pop(stack);
-	pop(stack);
+	pop(stack);*/
 
 	int a;
 	scanf_s("%d",&a);
