@@ -10,6 +10,8 @@ struct Stack{
 
 extern struct Stack initStack();
 extern void push (Stack &stack, struct Pos pos);
-extern void pop(Stack &stack);
+extern Pos pop(Stack &stack);
 extern void inputPolyline(Stack &stack);
 extern void showPolyline(Stack stack);
+extern void addSegment(Stack &stack, Pos pos);
+extern double perimeter(Stack stack);
