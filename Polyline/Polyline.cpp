@@ -129,78 +129,21 @@ double perimeter(Stack stack) {
 	return P;
 }
 
-Pos intersectionOfTwoLines(Pos A, Pos B, Pos C, Pos D, int& intersection) {
-	// y = kx + b
-	Pos result;
-	intersection = 0;
-	double k1, k2;
-	double b1, b2;
-	if (B.x != A.x) {
-		k1 = (B.y-A.y)/(B.x-A.x)*1.0;
-	} else {
-		k1 = 0;
-	}
-
-	b1 = A.y-k1*A.x;
-
-	if (D.x != C.x) {
-		k2 = (D.y-C.y)/(D.x-C.x)*1.0;
-	} else {
-		k2 = 0;
-	}
-
-	b2 = C.y-k2*C.x;
-	
-	if ((A.x!=B.x) && (C.x != D.x) && (A.y!=B.y) && (C.y!=D.y)) {
-		result.x = (b2-b1)/(k1-k2);
-		result.y = k1*result.x+b1;
-		intersection = 1;
-		return result;
-	} 
-	
-	if (A.y == B.y) {
-		if (C.y == D.y) {
-			if (A.y == C.y) {
-				if ((B.x < C.x) || (D.x < A.x)) {
-					intersection = 0;
-					result.x = 0;
-					result.y = 0;
-					return result;
-				} 
-				else {
-					intersection = 2;
-					result.x = 0;
-					result.y = 0;
-					return result;
-				}
-				
-			} else {
-				intersection = 0;
-				result.x = 0;
-				result.y = 0;
-				return result;
-			}
-		} else {
-			intersection = 1;
-			result.x = k2*(A.y-b1)/k1*1.0;
-			result.y = A.y;
-			return result;
-		}
-	} else {
-		if (C.y == D.y) {
-			intersection = 1;
-			result.x = k1*(C.y-b2)/k2*1.0;
-			result.y = C.y;
-			return result;
-		} else {
-			intersection = 1;
-			result.x = k1*(C.y-b2)/k2*1.0;
-			result.y = C.y;
-			return result;
-		}
-		
-	}
-
+int area (Pos a, Pos b, Pos c) {
+	return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
+}
+ 
+bool intersect_1 (int a, int b, int c, int d) {
+	if (a > b)  swap (a, b);
+	if (c > d)  swap (c, d);
+	return max(a,c) <= min(b,d);
+}
+ 
+bool intersect (Pos a, Pos b, Pos c, Pos d) {
+	return intersect_1 (a.x, b.x, c.x, d.x)
+		&& intersect_1 (a.y, b.y, c.y, d.y)
+		&& area(a,b,c) * area(a,b,d) <= 0
+		&& area(c,d,a) * area(c,d,b) <= 0;
 }
 
 bool exsistIntersection(Stack stack) {
@@ -208,9 +151,7 @@ bool exsistIntersection(Stack stack) {
 	Pos B = pop(stack);
 	Pos C = pop(stack);
 	Pos D = pop(stack);
-	int intersection = false;
-	Pos result = intersectionOfTwoLines(A, B, C, D, intersection);
-	cout << result.x << endl << result.y << endl << intersection << endl;
+	cout << endl << intersect(A,B,C,D) << endl;
 	return true;
 }
 
