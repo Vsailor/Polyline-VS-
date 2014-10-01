@@ -62,8 +62,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="Polyline.cpp" />
+    <ClCompile Include="Polyline_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Polyline.h" />

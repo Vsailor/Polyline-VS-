@@ -129,17 +129,17 @@ double perimeter(Stack stack) {
 	return P;
 }
 
-int area (Pos a, Pos b, Pos c) {
+int area(Pos a, Pos b, Pos c) {
 	return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
 }
  
-bool intersect_1 (int a, int b, int c, int d) {
+bool intersect_1(int a, int b, int c, int d) {
 	if (a > b)  swap (a, b);
 	if (c > d)  swap (c, d);
-	return max(a,c) <= min(b,d);
+	return max(a,c) < min(b,d);
 }
  
-bool intersect (Pos a, Pos b, Pos c, Pos d) {
+bool intersect(Pos a, Pos b, Pos c, Pos d) {
 	return intersect_1 (a.x, b.x, c.x, d.x)
 		&& intersect_1 (a.y, b.y, c.y, d.y)
 		&& area(a,b,c) * area(a,b,d) <= 0
@@ -147,12 +147,18 @@ bool intersect (Pos a, Pos b, Pos c, Pos d) {
 }
 
 bool exsistIntersection(Stack stack) {
-	Pos A = pop(stack);
-	Pos B = pop(stack);
-	Pos C = pop(stack);
-	Pos D = pop(stack);
-	cout << endl << intersect(A,B,C,D) << endl;
-	return true;
+	for (int i=0; i<stack.n-1; i++) {
+		for (int j=0; j<stack.n-1; j++) {
+			if (i==j) {
+				j++;
+			} else {
+				if (intersect(stack.stack[i], stack.stack[i+1], stack.stack[j], stack.stack[j+1])) {
+					return true;
+				}
+			}
+		}
+	}
+	return false;
 }
 
 
