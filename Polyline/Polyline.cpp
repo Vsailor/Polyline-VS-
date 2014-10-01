@@ -2,9 +2,10 @@
 #include <malloc.h>
 #include <stdio.h>
 #include <math.h>
+#include <iostream>
 
 #define NULL 0
-
+using namespace std;
 Stack initStack() {
 	Stack newStack;
 	newStack.stack = NULL;
@@ -127,3 +128,91 @@ double perimeter(Stack stack) {
 	}
 	return P;
 }
+
+Pos intersectionOfTwoLines(Pos A, Pos B, Pos C, Pos D, int& intersection) {
+	// y = kx + b
+	Pos result;
+	intersection = 0;
+	double k1, k2;
+	double b1, b2;
+	if (B.x != A.x) {
+		k1 = (B.y-A.y)/(B.x-A.x)*1.0;
+	} else {
+		k1 = 0;
+	}
+
+	b1 = A.y-k1*A.x;
+
+	if (D.x != C.x) {
+		k2 = (D.y-C.y)/(D.x-C.x)*1.0;
+	} else {
+		k2 = 0;
+	}
+
+	b2 = C.y-k2*C.x;
+	
+	if ((A.x!=B.x) && (C.x != D.x) && (A.y!=B.y) && (C.y!=D.y)) {
+		result.x = (b2-b1)/(k1-k2);
+		result.y = k1*result.x+b1;
+		intersection = 1;
+		return result;
+	} 
+	
+	if (A.y == B.y) {
+		if (C.y == D.y) {
+			if (A.y == C.y) {
+				if ((B.x < C.x) || (D.x < A.x)) {
+					intersection = 0;
+					result.x = 0;
+					result.y = 0;
+					return result;
+				} 
+				else {
+					intersection = 2;
+					result.x = 0;
+					result.y = 0;
+					return result;
+				}
+				
+			} else {
+				intersection = 0;
+				result.x = 0;
+				result.y = 0;
+				return result;
+			}
+		} else {
+			intersection = 1;
+			result.x = k2*(A.y-b1)/k1*1.0;
+			result.y = A.y;
+			return result;
+		}
+	} else {
+		if (C.y == D.y) {
+			intersection = 1;
+			result.x = k1*(C.y-b2)/k2*1.0;
+			result.y = C.y;
+			return result;
+		} else {
+			intersection = 1;
+			result.x = k1*(C.y-b2)/k2*1.0;
+			result.y = C.y;
+			return result;
+		}
+		
+	}
+
+}
+
+bool exsistIntersection(Stack stack) {
+	Pos A = pop(stack);
+	Pos B = pop(stack);
+	Pos C = pop(stack);
+	Pos D = pop(stack);
+	int intersection = false;
+	Pos result = intersectionOfTwoLines(A, B, C, D, intersection);
+	cout << result.x << endl << result.y << endl << intersection << endl;
+	return true;
+}
+
+
+

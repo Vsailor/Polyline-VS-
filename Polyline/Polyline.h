@@ -15,3 +15,4 @@ extern void inputPolyline(Stack &stack);
 extern void showPolyline(Stack stack);
 extern void addSegment(Stack &stack, Pos pos);
 extern double perimeter(Stack stack);
+extern bool exsistIntersection(Stack stack);
