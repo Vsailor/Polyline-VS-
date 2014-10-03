@@ -8,7 +8,7 @@ struct Stack{
     int n; // elements number
 };
 
-extern struct Stack initStack();
+extern void initStack(Stack &stack);
 extern void push (Stack &stack, struct Pos pos);
 extern Pos pop(Stack &stack);
 extern void inputPolyline(Stack &stack);

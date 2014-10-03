@@ -1,4 +1,4 @@
-﻿Build started 03.10.2014 21:57:54.
+﻿Build started 03.10.2014 23:05:29.
      1>Project "C:\Users\Иван\Documents\Visual Studio 2012\Projects\Polyline\Polyline-VS-\Polyline\Polyline.vcxproj" on node 2 (Build target(s)).
        Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
      1>ClCompile:
@@ -10,6 +10,9 @@
                  c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(237) : see declaration of 'fscanf'
      1>c:\users\иван\documents\visual studio 2012\projects\polyline\polyline-vs-\polyline\polyline_test.cpp(15): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(237) : see declaration of 'fscanf'
+     1>c:\users\иван\documents\visual studio 2012\projects\polyline\polyline-vs-\polyline\polyline_test.cpp(30): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : see declaration of 'fopen'
+     1>c:\users\иван\documents\visual studio 2012\projects\polyline\polyline-vs-\polyline\polyline_test.cpp(77): warning C4101: 'pos' : unreferenced local variable
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Иван\Documents\Visual Studio 2012\Projects\Polyline\Polyline-VS-\Debug\Polyline.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Иван\Documents\Visual Studio 2012\Projects\Polyline\Polyline-VS-\Debug\Polyline.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Иван\Documents\Visual Studio 2012\Projects\Polyline\Polyline-VS-\Debug\Polyline.lib" /MACHINE:X86 Debug\Polyline.obj
          Debug\Polyline_test.obj
@@ -18,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.13
+Time Elapsed 00:00:01.07

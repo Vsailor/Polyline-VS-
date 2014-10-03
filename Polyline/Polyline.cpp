@@ -6,11 +6,9 @@
 
 #define NULL 0
 using namespace std;
-Stack initStack() {
-	Stack newStack;
-	newStack.stack = NULL;
-	newStack.n = 0;
-	return newStack;
+void initStack(Stack &stack) {
+	stack.stack = NULL;
+	stack.n = 0;
 }
 
 // Adding element to the stack
