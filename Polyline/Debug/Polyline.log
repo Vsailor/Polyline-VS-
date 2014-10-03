@@ -1,23 +1,21 @@
-﻿Построение начато 01.10.2014 23:04:56.
-     1>Проект "C:\Users\Иван\Documents\Visual Studio 2012\Projects\Polyline\Polyline-VS-\Polyline\Polyline.vcxproj" в узле 2 (целевые объекты Build).
-       Файл проекта содержит ToolsVersion="12.0". Данный набор инструментов является неизвестным или отсутствует. Для устранения этой ошибки можно установить для данного набора инструментов соответствующую версию .NET Framework. Считается, что проект содержит ToolsVersion="4.0".
+﻿Build started 03.10.2014 21:57:54.
+     1>Project "C:\Users\Иван\Documents\Visual Studio 2012\Projects\Polyline\Polyline-VS-\Polyline\Polyline.vcxproj" on node 2 (Build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Polyline_test.cpp
          Polyline_test.cpp
      1>c:\users\иван\documents\visual studio 2012\projects\polyline\polyline-vs-\polyline\polyline_test.cpp(11): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218): см. объявление "fopen"
-     1>c:\users\иван\documents\visual studio 2012\projects\polyline\polyline-vs-\polyline\polyline_test.cpp(13): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(237): см. объявление "fscanf"
-     1>c:\users\иван\documents\visual studio 2012\projects\polyline\polyline-vs-\polyline\polyline_test.cpp(50): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218): см. объявление "fopen"
-     1>c:\users\иван\documents\visual studio 2012\projects\polyline\polyline-vs-\polyline\polyline_test.cpp(52): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290): см. объявление "scanf"
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : see declaration of 'fopen'
+     1>c:\users\иван\documents\visual studio 2012\projects\polyline\polyline-vs-\polyline\polyline_test.cpp(14): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(237) : see declaration of 'fscanf'
+     1>c:\users\иван\documents\visual studio 2012\projects\polyline\polyline-vs-\polyline\polyline_test.cpp(15): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(237) : see declaration of 'fscanf'
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Иван\Documents\Visual Studio 2012\Projects\Polyline\Polyline-VS-\Debug\Polyline.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Иван\Documents\Visual Studio 2012\Projects\Polyline\Polyline-VS-\Debug\Polyline.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Иван\Documents\Visual Studio 2012\Projects\Polyline\Polyline-VS-\Debug\Polyline.lib" /MACHINE:X86 Debug\Polyline.obj
          Debug\Polyline_test.obj
          Polyline.vcxproj -> C:\Users\Иван\Documents\Visual Studio 2012\Projects\Polyline\Polyline-VS-\Debug\Polyline.exe
-     1>Построение проекта "C:\Users\Иван\Documents\Visual Studio 2012\Projects\Polyline\Polyline-VS-\Polyline\Polyline.vcxproj" завершено (целевые объекты Build).
+     1>Done Building Project "C:\Users\Иван\Documents\Visual Studio 2012\Projects\Polyline\Polyline-VS-\Polyline\Polyline.vcxproj" (Build target(s)).
 
-Построение успешно завершено.
+Build succeeded.
 
-Затраченное время: 00:00:02.23
+Time Elapsed 00:00:01.13

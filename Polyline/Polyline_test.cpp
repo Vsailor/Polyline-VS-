@@ -10,9 +10,12 @@ int input(int mode, Stack &stack) {
 		FILE *file;
 		file = fopen("Polyline_test.txt","r");
 		Pos pos;
-		while(fscanf(file, "%d%d", &pos.x, &pos.y)) {
+		while(!feof(file)) {
+			fscanf(file, "%d", &pos.x);
+			fscanf(file, "%d\t", &pos.y);
 			push(stack,pos);
 		}
+		fclose(file);
 	}
 	return 0;
 }
