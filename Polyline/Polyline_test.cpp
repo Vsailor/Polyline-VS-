@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "Polyline.h"
-#include <iostream>
-using namespace std;
+
 
 int input(int mode, Stack &stack) {
 	if (mode == 1) {

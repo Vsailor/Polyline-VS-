@@ -2,10 +2,8 @@
 #include <malloc.h>
 #include <stdio.h>
 #include <math.h>
-#include <iostream>
-
 #define NULL 0
-using namespace std;
+
 void initStack(Stack &stack) {
 	stack.stack = NULL;
 	stack.n = 0;
@@ -127,36 +125,67 @@ double perimeter(Stack stack) {
 	return P;
 }
 
+
+
+int max(int a, int b) {
+	if (a>b) {
+		return a;
+	} else {
+		return b;
+	}
+}
+
+int min(int a, int b) {
+	if (a<b) {
+		return a;
+	} else {
+		return b;
+	}
+}
+ 
 int area(Pos a, Pos b, Pos c) {
 	return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
 }
- 
-bool intersect_1(int a, int b, int c, int d) {
-	if (a > b)  swap (a, b);
-	if (c > d)  swap (c, d);
-	return max(a,c) < min(b,d);
+
+int intersect_1(int a, int b, int c, int d) {
+	int swap;
+	if (a > b) {
+		swap = a;
+		a = b;
+		b = swap;
+	}
+	if (c > d) {
+		swap = c;
+		c = d;
+		d = swap;
+	}
+	if (max(a,c) < min(b,d)) {
+		return 1;
+	} else {
+		return 0;
+	}
 }
  
-bool intersect(Pos a, Pos b, Pos c, Pos d) {
-	return intersect_1 (a.x, b.x, c.x, d.x)
-		&& intersect_1 (a.y, b.y, c.y, d.y)
-		&& area(a,b,c) * area(a,b,d) <= 0
-		&& area(c,d,a) * area(c,d,b) <= 0;
+int intersect(Pos a, Pos b, Pos c, Pos d) {
+	if (intersect_1 (a.x, b.x, c.x, d.x) && intersect_1 (a.y, b.y, c.y, d.y) && area(a,b,c) * area(a,b,d) <= 0 && area(c,d,a) * area(c,d,b) <= 0) {
+		return 1;
+	}
+	return 0;
 }
 
-bool exsistIntersection(Stack stack) {
+int exsistIntersection(Stack stack) {
 	for (int i=0; i<stack.n-1; i++) {
 		for (int j=0; j<stack.n-1; j++) {
 			if (i==j) {
 				j++;
 			} else {
-				if (intersect(stack.stack[i], stack.stack[i+1], stack.stack[j], stack.stack[j+1])) {
-					return true;
+				if (intersect(stack.stack[i], stack.stack[i+1], stack.stack[j], stack.stack[j+1]) == 1) {
+					return 1;
 				}
 			}
 		}
 	}
-	return false;
+	return 0;
 }
 
 
