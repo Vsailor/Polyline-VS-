@@ -1,18 +1,16 @@
+typedef struct Pos* Polyline;
+
 struct Pos{
-    int x;
-    int y;
+    Polyline next;
+	int x;
+	int y;
 };
 
-struct Stack{
-    Pos* stack;
-    int n; // elements number
-};
-
-extern void initStack(Stack &stack);
-extern void push (Stack &stack, struct Pos pos);
-extern Pos pop(Stack &stack);
-extern void inputPolyline(Stack &stack);
-extern void showPolyline(Stack stack);
-extern void addSegment(Stack &stack, Pos pos);
-extern double perimeter(Stack stack);
-extern int exsistIntersection(Stack stack);
+extern void init(Polyline &p);
+extern void push(Polyline &p, int x, int y);
+extern Polyline pop(Polyline &p);
+extern void inputPolyline(Polyline &p);
+extern void showPolyline(Polyline &p);
+extern void addSegment(Polyline &p, int x, int y);
+extern double perimeter(Polyline &p);
+extern int exsistIntersection(Polyline &p);

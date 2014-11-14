@@ -4,81 +4,32 @@
 #include <math.h>
 #define NULL 0
 
-void initStack(Stack &stack) {
-	stack.stack = NULL;
-	stack.n = 0;
+void init(Polyline &p) {
+	p = NULL;
 }
 
-// Adding element to the stack
-void push(Stack &s, Pos pos) {
-	// Initialised new var to make a stack array with n+1 elements
-	Stack newStack;
-	// making array with n+1 size
-	newStack.stack =  (Pos *)malloc((s.n+1)*sizeof(Pos));
-	if (s.n == 0) {
-		// that's why we don't need to copy array
-		newStack.stack[0] = pos;
-		newStack.n = 0;
+void push(Polyline &p, int x, int y) {
+	Polyline k;
+	init(k);
+	k = new Pos;
+	k->x = x;
+	k->y = y;
+	k->next = p;
+	p = k;
+}
 
-	} else {
-
-		// bad C syntax. It's not me:/
-		int i;
-		// copies old array into the new array to get old items with a new one
-		for (i=0; i<s.n; i++) {
-
-			newStack.stack[i] = s.stack[i];
-
-		}
-
-		newStack.stack[s.n] = pos;
+Polyline pop(Polyline &p) {
+	if (p != NULL) {
+		p = p->next;
+		return p;
 	}
-	// change references
-	s.n++;
-	s.stack = newStack.stack;
-}
-
-// Showing and removing element from the stack
-Pos pop(Stack &s) {
-	Pos result;
-	// Initialised new var to make a stack array with n+1 elements
-	Stack newStack;
-	if (s.n == 1) {
-		// last element
-		//printf("x = %d; y = %d\n", s.stack[s.n-1].x, s.stack[s.n-1].y);
-		result.x = s.stack[s.n - 1].x;
-		result.y = s.stack[s.n - 1].y;
-		s.stack = NULL;
-		s.n--;
-	} else if (s.n == 0) {
-		printf("Error: Stack is empty\n");
-		result.x = 0;
-		result.y = 0;
-	} else {
-		newStack.n = s.n-1;
-		// making array with n-1 size
-		//printf("x = %d; y = %d\n", s.stack[newStack.n].x, s.stack[newStack.n].y);
-		result.x = s.stack[newStack.n].x;
-		result.y = s.stack[newStack.n].y;
-		newStack.stack =  (Pos *)malloc((s.n-1)*sizeof(Pos));
-		// one more time...
-		int i;
-		// copies old array into the new array to get old items with a new one
-		for (i=0; i<newStack.n; i++) {
-
-			newStack.stack[i] = s.stack[i];
-
-		}
-		s.n--;
-		s.stack = newStack.stack;
+	else {
+		printf("Error : Stack is empty.\n");
+		return NULL;
 	}
-
-
-
-	return result;
 }
 
-void inputPolyline(Stack &s) {
+void inputPolyline(Polyline &p) {
 	printf("How many points in the polyline?\n");
 	int k;
 	do {
@@ -89,37 +40,39 @@ void inputPolyline(Stack &s) {
 	} while(k<=0);
 
 	int i;
-	Pos pos;
+	int x, y;
 	for (i=0; i<k; i++) {
 		printf("x[%d] = ",i);
-		scanf("%d",&pos.x);
+		scanf("%d",&x);
 		printf("y[%d] = ",i);
-		scanf("%d",&pos.y);
-		push(s,pos);
+		scanf("%d",&y);
+		push(p,x,y);
 	}
 
 
 }
 
-void showPolyline(Stack s) {
+void showPolyline(Polyline &p) {
 	int i;
-	for (i=s.n-1; i>=0; i--) {
-		printf("x = %d, y = %d\n", s.stack[i].x, s.stack[i].y);
+	Polyline k = p;
+	while (k != NULL) {
+		printf("x = %d, y = %d\n", k->x, k->y);
+		k = k->next;
 	}
-
 }
 
-void addSegment(Stack &stack, Pos pos) {
-	push(stack, pos);
+void addSegment(Polyline &p, int x, int y) {
+	push(p, x, y);
 }
 
-double perimeter(Stack stack) {
+double perimeter(Polyline& p) {
 	double P=0;
-	Pos a = pop(stack);
-	Pos b;
-	while (stack.n != 0) {
-		b = pop(stack);
-		P += sqrt(((b.x - a.x)*(b.x - a.x) + (b.y - a.y)*(b.y - a.y))*1.0);
+	Polyline k = p;
+	Polyline a = pop(k);
+	Polyline b;
+	while (k->next != NULL) {
+		b = pop(k);
+		P += sqrt(((b->x - a->x)*(b->x - a->x) + (b->y - a->y)*(b->y - a->y))*1.0);
 		a = b;
 	}
 	return P;
@@ -173,17 +126,17 @@ int intersect(Pos a, Pos b, Pos c, Pos d) {
 	return 0;
 }
 
-int exsistIntersection(Stack stack) {
-	for (int i=0; i<stack.n-1; i++) {
-		for (int j=0; j<stack.n-1; j++) {
-			if (i==j) {
-				j++;
-			} else {
-				if (intersect(stack.stack[i], stack.stack[i+1], stack.stack[j], stack.stack[j+1]) == 1) {
-					return 1;
-				}
+int exsistIntersection(Polyline& stack) {
+	Polyline k = stack;
+	Polyline t = stack;
+	while (k != NULL) {
+		if (k->next != NULL) {
+			if (intersect(*k, *k->next, *t, *t->next) == 1) {
+				return 1;
 			}
 		}
+		k = k->next;
+		t = t->next;
 	}
 	return 0;
 }

@@ -2,7 +2,7 @@
 #include "Polyline.h"
 
 
-int input(int mode, Stack &stack) {
+int input(int mode, Polyline &stack) {
 	if (mode == 1) {
 		inputPolyline(stack);
 	} else {
@@ -12,38 +12,27 @@ int input(int mode, Stack &stack) {
 		while(!feof(file)) {
 			fscanf(file, "%d", &pos.x);
 			fscanf(file, "%d\t", &pos.y);
-			push(stack,pos);
+			push(stack,pos.x,pos.y);
 		}
 		fclose(file);
 	}
 	return 0;
 }
 
-void outputInFile(Stack &stack) {
-	Stack s;
-	initStack(s);
-	int count=stack.n;
+void outputInFile(Polyline &stack) {
+	Polyline t = stack;
+	int count=0;
+	while (t != NULL) {
+		count++;
+		t = t->next;
+	}
+	t = stack;
 	FILE *file;
-	Stack hstack;
-	initStack(hstack);
 	file = fopen("Polyline_output.txt","w");
 	for (int l=0; l<count; l++) {
-		push(s, pop(stack));
-	}
-	Stack sortedS;
-	initStack(sortedS);
-	Pos a;
-	for (int l=0; l<count; l++) {
-		a = pop(s);
-		push(sortedS, a);
-		push(stack,a);
-	}
-
-	Pos pos;	
-	for (int l=0; l<count; l++) {
-		pos = pop(sortedS);
-		fprintf(file, "x = %d, ",pos.x);
-		fprintf(file, "y = %d\n",pos.y);
+		fprintf(file, "x = %d, ",t->x);
+		fprintf(file, "y = %d\n",t->y);
+		t = t->next;
 	}
 	fprintf(file, "P = %f\n",perimeter(stack));
 	fprintf(file, "Intersections : %d\n",exsistIntersection(stack));
@@ -66,8 +55,8 @@ int mode() {
 
 int main(void)
 {
-    Stack stack;
-	initStack(stack);
+    Polyline stack;
+	init(stack);
 
 	input(mode(),stack);
 	outputInFile(stack);
