@@ -128,15 +128,17 @@ int intersect(Pos a, Pos b, Pos c, Pos d) {
 
 int exsistIntersection(Polyline& stack) {
 	Polyline k = stack;
-	Polyline t = stack;
-	while (k != NULL) {
-		if (k->next != NULL) {
-			if (intersect(*k, *k->next, *t, *t->next) == 1) {
+	Polyline t;
+	while (k->next != NULL) {
+		t = k->next;
+		while (t->next != NULL) {
+			if (intersect(*k, *k->next, *t, *t->next))
+			{
 				return 1;
 			}
+			t = t->next;
 		}
 		k = k->next;
-		t = t->next;
 	}
 	return 0;
 }

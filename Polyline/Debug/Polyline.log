@@ -1,4 +1,4 @@
-﻿Сборка начата 14.11.2014 22:41:34.
+﻿Сборка начата 23.11.2014 23:20:22.
      1>Проект "C:\Users\Ivan\Desktop\Универ\Polyline\Polyline-VS-\Polyline\Polyline.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _USING_V110_SDK71_ /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Polyline.cpp
@@ -19,4 +19,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:01.03
+Затраченное время: 00:00:00.50
