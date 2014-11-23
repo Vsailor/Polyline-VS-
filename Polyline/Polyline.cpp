@@ -95,7 +95,7 @@ int min(int a, int b) {
 		return b;
 	}
 }
- 
+ // Повертає подвоєну площу трикутника
 int area(Pos a, Pos b, Pos c) {
 	return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
 }
@@ -118,7 +118,7 @@ int intersect_1(int a, int b, int c, int d) {
 		return 0;
 	}
 }
- 
+ // Повертає 1, якщо відрізки ab і cd перетинаються
 int intersect(Pos a, Pos b, Pos c, Pos d) {
 	if (intersect_1 (a.x, b.x, c.x, d.x) && intersect_1 (a.y, b.y, c.y, d.y) && area(a,b,c) * area(a,b,d) <= 0 && area(c,d,a) * area(c,d,b) <= 0) {
 		return 1;
