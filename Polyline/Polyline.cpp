@@ -1,5 +1,4 @@
 #include "Polyline.h"
-#include <malloc.h>
 #include <stdio.h>
 #include <math.h>
 #define NULL 0
@@ -72,7 +71,7 @@ double perimeter(Polyline& p) {
 	Polyline b;
 	while (k->next != NULL) {
 		b = pop(k);
-		P += sqrt(((b->x - a->x)*(b->x - a->x) + (b->y - a->y)*(b->y - a->y))*1.0);
+		P = P + sqrt(((b->x - a->x)*(b->x - a->x) + (b->y - a->y)*(b->y - a->y))*1.0);
 		a = b;
 	}
 	return P;
@@ -101,6 +100,7 @@ int area(Pos a, Pos b, Pos c) {
 }
 
 int intersect_1(int a, int b, int c, int d) {
+	// Тимчасова змінна для заміни значень змінних 
 	int swap;
 	if (a > b) {
 		swap = a;
@@ -132,6 +132,7 @@ int exsistIntersection(Polyline& stack) {
 	while (k->next != NULL) {
 		t = k->next;
 		while (t->next != NULL) {
+			// Оскільки k - вказівник на Pos, а intersect приймає в параметри Pos, то ми його розіменовуємо за допомогою *
 			if (intersect(*k, *k->next, *t, *t->next))
 			{
 				return 1;

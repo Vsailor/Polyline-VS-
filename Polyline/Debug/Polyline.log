@@ -1,22 +1,10 @@
-﻿Сборка начата 23.11.2014 23:20:22.
-     1>Проект "C:\Users\Ivan\Desktop\Универ\Polyline\Polyline-VS-\Polyline\Polyline.vcxproj" в узле 2 (целевые объекты Build).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _USING_V110_SDK71_ /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Polyline.cpp
-         Polyline.cpp
-     1>c:\users\ivan\desktop\универ\polyline\polyline-vs-\polyline\polyline.cpp(36): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283): см. объявление "scanf"
-     1>c:\users\ivan\desktop\универ\polyline\polyline-vs-\polyline\polyline.cpp(46): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283): см. объявление "scanf"
-     1>c:\users\ivan\desktop\универ\polyline\polyline-vs-\polyline\polyline.cpp(48): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283): см. объявление "scanf"
-     1>c:\users\ivan\desktop\универ\polyline\polyline-vs-\polyline\polyline.cpp(56): warning C4101: i: неиспользованная локальная переменная
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1197,5): warning MSB8030: The linker switch "Minimum Required Version" requires "SubSystem" to be set.  Without "SubSystem", the "Minimum Required Version" would not be passed to linker and could prevent to the output binary from running on older Operating Systems.
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ivan\Desktop\Универ\Polyline\Polyline-VS-\Debug\Polyline.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Ivan\Desktop\Универ\Polyline\Polyline-VS-\Debug\Polyline.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ivan\Desktop\Универ\Polyline\Polyline-VS-\Debug\Polyline.lib" /MACHINE:X86 Debug\Polyline.obj
-         Debug\Polyline_test.obj
-         Polyline.vcxproj -> C:\Users\Ivan\Desktop\Универ\Polyline\Polyline-VS-\Debug\Polyline.exe
-     1>Сборка проекта "C:\Users\Ivan\Desktop\Универ\Polyline\Polyline-VS-\Polyline\Polyline.vcxproj" завершена (целевые объекты Build).
+﻿Сборка начата 24.11.2014 11:10:32.
+     1>Проект "C:\Users\Христина\Documents\Polyline-VS-\Polyline\Polyline.vcxproj" в узле 2 (целевые объекты Build).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1190,5): warning MSB8030: The linker switch "Minimum Required Version" requires "SubSystem" to be set.  Without "SubSystem", the "Minimum Required Version" would not be passed to linker and could prevent to the output binary from running on older Operating Systems.
+     1>Link:
+         Polyline.vcxproj -> C:\Users\Христина\Documents\Polyline-VS-\Debug\Polyline.exe
+     1>Сборка проекта "C:\Users\Христина\Documents\Polyline-VS-\Polyline\Polyline.vcxproj" завершена (целевые объекты Build).
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:00.50
+Затраченное время: 00:00:00.67

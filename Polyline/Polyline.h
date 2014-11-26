@@ -13,4 +13,4 @@ extern void inputPolyline(Polyline &p);
 extern void showPolyline(Polyline &p);
 extern void addSegment(Polyline &p, int x, int y);
 extern double perimeter(Polyline &p);
-extern int exsistIntersection(Polyline &p);
+extern int exsistIntersection(Polyline &p);  
